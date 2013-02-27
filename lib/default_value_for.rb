@@ -130,7 +130,7 @@ module DefaultValueFor
         elsif respond_to?(:sanitize_for_mass_assignment, true)
           @initialization_attributes = sanitize_for_mass_assignment(@initialization_attributes)
         else
-          @initialization_attributes = remove_attributes_protected_from_mass_assignment(@initialization_attributes)
+          @initialization_attributes = sanitize_for_mass_assignment(@initialization_attributes).keys 
         end
       end
 
